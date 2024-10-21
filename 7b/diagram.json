@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-mini", "id": "bb1", "top": 305.8, "left": -232.8, "attrs": {} },
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 112.05,
+      "left": 13.2,
+      "attrs": { "env": "micropython-20231227-v1.22.0" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -41.6,
+      "left": -224.8,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-hc-sr04", "id": "ultrasonic1", "top": 155.1, "left": -234.5, "attrs": {} }
+  ],
+  "connections": [
+    [ "lcd1:SCL", "pico:GP1", "green", [ "h-9.6", "v115.5" ] ],
+    [ "lcd1:SDA", "pico:GP0", "green", [ "h-28.8", "v115.4" ] ],
+    [ "ultrasonic1:ECHO", "pico:GP6", "green", [ "v9.6", "h124", "v-38.4" ] ],
+    [ "ultrasonic1:TRIG", "pico:GP7", "green", [ "v19.2", "h143.6", "v-57.6" ] ],
+    [ "ultrasonic1:VCC", "bb1:1t.a", "red", [ "v28.8", "h-57.6" ] ],
+    [ "lcd1:VCC", "bb1:1t.b", "red", [ "h-48", "v326.5" ] ],
+    [ "bb1:1t.c", "pico:3V3", "red", [ "v0", "h-28.8", "v28.8", "h364.8", "v-211.2" ] ],
+    [ "ultrasonic1:GND", "bb1:10b.f", "black", [ "v0" ] ],
+    [ "lcd1:GND", "bb1:10b.g", "black", [ "h-67.2", "v403.2", "h9.6" ] ],
+    [ "bb1:10b.h", "pico:GND.4", "black", [ "v0", "h134.4", "v-115.2" ] ]
+  ],
+  "dependencies": {}
+}
