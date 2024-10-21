@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-mini", "id": "bb1", "top": 267.4, "left": -117.6, "attrs": {} },
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 35.25,
+      "left": 99.6,
+      "attrs": { "env": "micropython-20231227-v1.22.0" }
+    },
+    { "type": "wokwi-hc-sr04", "id": "ultrasonic1", "top": 11.1, "left": -128.9, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": 150, "left": -15.4, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 150,
+      "left": -53.8,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 150,
+      "left": -101.8,
+      "attrs": { "color": "cyan" }
+    }
+  ],
+  "connections": [
+    [ "ultrasonic1:VCC", "pico:3V3", "red", [ "v9.6", "h-86.4", "v-124.8", "h374.4", "v96" ] ],
+    [ "ultrasonic1:ECHO", "pico:GP6", "green", [ "v0" ] ],
+    [ "ultrasonic1:TRIG", "pico:GP7", "green", [ "v0" ] ],
+    [ "led1:A", "pico:GP13", "red", [ "v0" ] ],
+    [ "led2:A", "pico:GP14", "yellow", [ "v0" ] ],
+    [ "led3:A", "pico:GP15", "cyan", [ "v0" ] ],
+    [ "led1:C", "bb1:12t.b", "black", [ "v0" ] ],
+    [ "led2:C", "bb1:12t.c", "black", [ "v0" ] ],
+    [ "led3:C", "bb1:12t.d", "black", [ "v0" ] ],
+    [ "bb1:12t.e", "pico:GND.5", "black", [ "v9.6", "h230.4", "v-86.4" ] ],
+    [ "ultrasonic1:GND", "pico:GND.2", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
